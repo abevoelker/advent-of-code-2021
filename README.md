@@ -11,9 +11,18 @@ $ ghc -e 'main' day1
 
 ### Day 2
 
+#### Part 1
+
 ```
-$ ghc -e 'main' day2
+$ ghc -e 'part1' day2
 2147104
+```
+
+#### Part 2
+
+```
+$ ghc -e 'part2' day2
+2044620088
 ```
 
 [2021 Advent of Code]: https://adventofcode.com/2021
