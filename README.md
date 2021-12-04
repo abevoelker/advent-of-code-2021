@@ -22,4 +22,12 @@ $ ghc -e 'part1' day2
 $ ghc -e 'part2' day2
 ```
 
+### Day 3
+
+#### Part 1
+
+```
+$ ghc -e 'part1' day3
+```
+
 [2021 Advent of Code]: https://adventofcode.com/2021
