@@ -33,3 +33,29 @@ part1 = do
   let gamma = bitsToDec $ map mostCommonBit words
   let epsilon = bitsToDec $ map leastCommonBit words
   return $ gamma * epsilon
+
+-- Part 2
+
+oxygenBitmask :: [String] -> String
+oxygenBitmask words = map mostCommonBit words
+
+co2Bitmask :: [String] -> String
+co2Bitmask words = map leastCommonBit words
+
+filterMask :: ([String] -> String) -> [String] -> String
+filterMask f x = filterMask' f x 0
+
+filterMask' :: ([String] -> String) -> [String] -> Int -> String
+filterMask' f words currentBit
+  | length words == 1 = words !! 0
+  | otherwise         = filterMask' f filteredWords (currentBit + 1)
+  where
+    mask = f . combineBits $ map split words
+    filteredWords = filter (\x -> (x !! currentBit) == (mask !! currentBit)) words
+
+part2 = do
+  contents <- readFile "input.txt"
+  let words = lines contents
+  let oxygenRating = bitsToDec $ filterMask oxygenBitmask words
+  let co2Rating = bitsToDec $ filterMask co2Bitmask words
+  return $ oxygenRating * co2Rating
