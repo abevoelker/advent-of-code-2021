@@ -23,4 +23,10 @@ $ ghc -e 'part1' day3
 $ ghc -e 'part2' day3
 ```
 
+### Day 5
+
+```
+$ cabal --ghc-option="-optl-no-pie" run
+```
+
 [2021 Advent of Code]: https://adventofcode.com/2021
